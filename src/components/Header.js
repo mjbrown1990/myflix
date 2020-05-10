@@ -30,10 +30,10 @@ const Header = () => (
         <div className="header__right">
             <div className="nav nav--secondary">
                 <div className="nav__element">
-                    <span className="icon-search"></span>
+                    <span className="fas fa-search"></span>
                 </div>
                 <div className="nav__element">
-                    <span className="icon-button-notification"></span>
+                    <span className="fas fa-bell"></span>
                 </div>
                 <div className="nav__element">Profile</div>
             </div>

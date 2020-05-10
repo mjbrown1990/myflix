@@ -8,6 +8,7 @@ import Home from "./components/Home";
 import Movie from "./components/Movie";
 
 import "./assets/scss/style.scss";
+import '@fortawesome/fontawesome-free/css/all.css';
 
 const App = () => {
     return (
