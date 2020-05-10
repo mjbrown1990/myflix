@@ -1,0 +1,50 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $netflixBlack;
+    padding: 0 20px;
+    height: 70px;
+    font-size: 1.2rem;
+
+    &__left, &__right {
+        display: flex;
+    }
+
+    &__logo {
+        font-family: 'Netflix Sans';
+        font-size: 1.8em;
+        color: $netflixRed;
+        margin-right: 5px;
+        text-decoration: none;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+
+    &__item {
+        margin-left: 18px;
+    }
+
+    &__link {
+        color: $mercuryGrey;
+        text-decoration: none;
+        cursor: pointer;
+
+        &--active {
+            color: $white;
+            font-weight: bold;
+        }
+    }
+
+    &__element {
+        margin-right: 15px;
+        color: $white;
+    }
+}
