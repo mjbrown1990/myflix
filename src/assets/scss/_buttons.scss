@@ -1,0 +1,41 @@
+.button {
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+
+    &--primary {
+        background: $white;
+        color: $netflixBlack;
+        transition: background-color 125ms linear;
+
+        &:hover {
+            background: #d0d0d0;
+        }
+    }
+
+    &--secondary {
+        color: $white;
+        background: rgba(133,133,133,0.6);
+        transition: background-color 125ms linear;
+
+        &:hover {
+            background: rgba(75,75,75,0.6);
+        }
+    }
+
+    &--medium {
+        padding: 10px;
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+    }
+
+    &--has-icon {
+        padding-left: 18px;
+        padding-right: 18px;
+
+        i.fas {
+            margin-right: 10px;
+        }
+    }
+}

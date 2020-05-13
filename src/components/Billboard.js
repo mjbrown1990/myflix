@@ -32,6 +32,16 @@ class Billboard extends React.Component {
                 <div className="billboard__meta">
                     <h3 className="billboard__title">{this.props.billboard.title}</h3>
                     <h3 className="billboard__overview">{this.props.billboard.overview}</h3>
+                    <div className="billboard__links">
+                        <button className="button button--primary button--medium button--has-icon" type="button">
+                            <i className="fas fa-play"></i>
+                            <span>Play</span>
+                        </button>
+                        <button className="button button--secondary button--medium button--has-icon" type="button">
+                            <i className="fas fa-info-circle"></i>
+                            <span>More Info</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         )
