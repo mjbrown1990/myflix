@@ -32,6 +32,17 @@
     &:hover .movie-grid__item {
         transform: translateX(-25%);
     }
+
+    &--loading {
+        overflow-x: hidden;
+
+        .loading__placeholder {
+            flex: 1 1 0px;
+            height: 120px;
+            padding: 0 15px;
+            background: grey;
+        }
+    }
 }
 
 

@@ -1,7 +1,10 @@
 import React from 'react';
 import { connect } from "react-redux";
+import Skeleton from 'react-loading-skeleton';
 
+import LoadingSkeleton from "./LoadingSkeleton";
 import { addBillboardMovie } from "../actions";
+
 
 class Billboard extends React.Component {
     constructor(props) {
@@ -16,8 +19,17 @@ class Billboard extends React.Component {
     }
 
     render() {
-        if (!this.props.billboard.id) {
-            return (<h1>Loading...</h1>);
+
+        if (!this.props.billboard) {
+            return (
+                <LoadingSkeleton>
+                    <div className="billboard">
+                        <div className="billboard__image">
+                            <Skeleton height="100vh" />
+                        </div>
+                    </div>
+                </LoadingSkeleton>
+            )
         }
 
         return (
@@ -43,6 +55,7 @@ class Billboard extends React.Component {
                         </button>
                     </div>
                 </div>
+
             </div>
         )
     }
