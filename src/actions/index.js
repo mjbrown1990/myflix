@@ -4,3 +4,17 @@ export const addBillboardMovie = payload => {
         payload
     };
 };
+
+export const addMovieGenres = payload => {
+    return {
+        type: "ADD_MOVIE_GENRES",
+        payload
+    };
+};
+
+export const addMoviesToGenre = payload => {
+    return {
+        type: "ADD_MOVIE_TITLES_TO_GENRE",
+        payload
+    };
+}

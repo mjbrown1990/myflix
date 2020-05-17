@@ -1,10 +1,11 @@
 import React from 'react';
 import Billboard from './Billboard';
+import Genres from './Genres';
 
 const Home = () => (
     <>
         <Billboard />
-        <h1>Home Component</h1>
+        <Genres />
     </>
 )
 
