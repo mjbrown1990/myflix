@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import { createSelector } from 'reselect'
@@ -6,33 +6,30 @@ import { createSelector } from 'reselect'
 import { addMoviesToGenre } from "../actions";
 import Slider from "./Slider";
 
-class Genre extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
+const Genre = (props) => {
 
-    componentDidMount() {
-        if (this.props.movies.length === 0) {
-            fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMD_API_KEY}&with_genres=${this.props.id}&sort_by=popularity.desc`)
-                .then(res => res.json())
-                .then(({ results }) => this.props.dispatch(
-                    addMoviesToGenre({
-                        id: this.props.id,
-                        movies: results
-                    })
-                ));
+    useEffect(() => {
+        async function fetchMovies() {
+            const res = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMD_API_KEY}&with_genres=${props.id}&sort_by=popularity.desc`);
+            res.json().then(({ results }) => props.dispatch(
+                addMoviesToGenre({
+                    id: props.id,
+                    movies: results
+                })
+            ));
         }
-    }
 
-    render() {
-        return (
-            <div className="genre">
-                <h3 className="genre__title">{this.props.name}</h3>
-                <Slider movies={this.props.movies} />
-            </div>
-        )
-    }
+        if (props.movies.length === 0) {
+            fetchMovies();
+        }
+    }, [props]);
+
+    return (
+        <div className="genre">
+            <h3 className="genre__title">{props.name}</h3>
+            <Slider movies={props.movies} />
+        </div>
+    )
 }
 
 Genre.propTypes = {
