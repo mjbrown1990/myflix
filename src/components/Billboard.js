@@ -5,7 +5,6 @@ import Skeleton from 'react-loading-skeleton';
 import LoadingSkeleton from "./LoadingSkeleton";
 import { addBillboardMovie } from "../actions";
 
-
 class Billboard extends React.Component {
     constructor(props) {
         super(props)
@@ -20,7 +19,7 @@ class Billboard extends React.Component {
 
     render() {
 
-        if (!this.props.billboard) {
+        if (!this.props.billboard.id) {
             return (
                 <LoadingSkeleton>
                     <div className="billboard">
