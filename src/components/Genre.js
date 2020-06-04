@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import { createSelector } from 'reselect'
 
 import { addMoviesToGenre } from "../actions";
-import Slider from "./Slider";
+import Slider from './slider/Slider'
+import Item from './slider/Item'
 
 const Genre = (props) => {
 
@@ -27,7 +28,9 @@ const Genre = (props) => {
     return (
         <div className="genre">
             <h3 className="genre__title">{props.name}</h3>
-            <Slider movies={props.movies} />
+            <Slider>
+                {props.movies.map(movie => <Item movie={movie} key={movie.id} />)}
+            </Slider>
         </div>
     )
 }
@@ -48,6 +51,10 @@ const getGenreID = (_, props) => {
 
 const getMoviesForGenre = createSelector([getGenreID, getGenres], (id, genres) => {
     const genre = genres.find(genre => genre.id === id)
+
+    if (!genre) {
+        throw new Error("Failed to retreive genre");
+    }
 
     if (!genre.hasOwnProperty('movies')) {
         genre.movies = [];

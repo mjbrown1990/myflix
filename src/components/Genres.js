@@ -13,7 +13,7 @@ class Genres extends React.Component {
     }
 
     render() {
-        if (!this.props.genres) {
+        if (!this.props.genres || this.props.genres.length === 0) {
             return null;
         }
 

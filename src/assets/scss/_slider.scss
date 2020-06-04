@@ -1,0 +1,150 @@
+.slider-wrapper {
+  padding: 40px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.slider {
+  display: flex;
+  position: relative;
+
+  &__container {
+    display: flex;
+    padding: 0 55px;
+    transition: transform 300ms ease 100ms;
+    z-index: 3;
+    width: 100%;
+  }
+
+  &:not(&--open) .item:hover .show-details-button {
+    opacity: 1;
+  }
+
+  &:not(&--open) .item:hover {
+    transform: scale(1.5) !important;
+  }
+
+  &:not(&--open):hover .item {
+    transform: translateX(-25%);
+  }
+
+  &:not(&--open) .item:hover ~ .item {
+    transform: translateX(25%);
+  }
+}
+
+.item {
+  flex: 0 0 19.7%;
+  transition: transform 300ms ease 100ms;
+  margin: 0 2px;
+  position: relative;
+
+  img {
+    height: 100%;
+    width: 100%;
+    vertical-align: top;
+  }
+}
+
+.mark {
+  box-sizing: border-box;
+  border: solid 4px #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  z-index: 4;
+
+  &:before,
+  &:after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    content: '';
+    top: 100%;
+    left: 50%;
+    margin-left: -13px;
+    border-style: solid;
+    border-width: 7px 13px 0 13px;
+  }
+
+  &:before {
+    border-color: rgba(0, 0, 0, 0.15) transparent transparent transparent;
+    margin-top: 5px;
+  }
+
+  &:after {
+    margin-top: 4px;
+    border-color: #fff transparent transparent transparent;
+  }
+}
+
+.show-details-button {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: opacity 300ms ease 100ms;
+  background: transparent;
+  border: 0;
+  outline: none;
+  width: 100%;
+
+  span {
+    display: block;
+    width: 14px;
+    margin: 0 auto;
+    color: white;
+  }
+}
+
+.slide-button {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 55px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 0;
+  outline: 0;
+  padding: 0;
+  margin: 40px 0;
+  z-index: 4;
+
+  span {
+    width: 25px;
+    color: #fff;
+    display: block;
+    margin: 0 auto;
+  }
+
+  &--next {
+    right: 0;
+
+    span {
+      transform: rotateZ(-90deg);
+    }
+  }
+
+  &--prev {
+    left: 0;
+
+    span {
+      transform: rotateZ(90deg);
+    }
+  }
+}
+
+@keyframes backgroundColor {
+  0% {
+    background-color: $netflixBlack;
+  }
+  50% {
+    background-color: #2E2E2E;
+  }
+  100% {
+    background-color: $netflixBlack;
+  }
+}
